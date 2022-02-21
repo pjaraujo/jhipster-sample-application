@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd">
+    <!--
+        Added the constraints for entity MoloniDocumentType.
+    -->
+    <changeSet id="20220221162915-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="config1_id"
+                                 baseTableName="moloni_document_type"
+                                 constraintName="fk_moloni_document_type__config1_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="moloni_configuration"/>
+
+        <addForeignKeyConstraint baseColumnNames="config2_id"
+                                 baseTableName="moloni_document_type"
+                                 constraintName="fk_moloni_document_type__config2_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="moloni_configuration"/>
+
+        <addForeignKeyConstraint baseColumnNames="config3_id"
+                                 baseTableName="moloni_document_type"
+                                 constraintName="fk_moloni_document_type__config3_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="moloni_configuration"/>
+
+        <addForeignKeyConstraint baseColumnNames="config4_id"
+                                 baseTableName="moloni_document_type"
+                                 constraintName="fk_moloni_document_type__config4_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="moloni_configuration"/>
+    </changeSet>
+</databaseChangeLog>

@@ -48,6 +48,12 @@ public class CacheConfiguration {
             createCache(cm, biz.flowinn.product.logistics.domain.User.class.getName());
             createCache(cm, biz.flowinn.product.logistics.domain.Authority.class.getName());
             createCache(cm, biz.flowinn.product.logistics.domain.User.class.getName() + ".authorities");
+            createCache(cm, biz.flowinn.product.logistics.domain.MoloniConfiguration.class.getName());
+            createCache(cm, biz.flowinn.product.logistics.domain.MoloniConfiguration.class.getName() + ".receptionIns");
+            createCache(cm, biz.flowinn.product.logistics.domain.MoloniConfiguration.class.getName() + ".receptionOuts");
+            createCache(cm, biz.flowinn.product.logistics.domain.MoloniConfiguration.class.getName() + ".expeditionIns");
+            createCache(cm, biz.flowinn.product.logistics.domain.MoloniConfiguration.class.getName() + ".expeditionOuts");
+            createCache(cm, biz.flowinn.product.logistics.domain.MoloniDocumentType.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }

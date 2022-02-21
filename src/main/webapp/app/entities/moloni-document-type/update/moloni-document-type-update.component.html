@@ -1,0 +1,129 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-moloni-document-type-heading"
+        data-cy="MoloniDocumentTypeCreateUpdateHeading"
+        jhiTranslate="jhipsterSampleApplicationApp.moloniDocumentType.home.createOrEditLabel"
+      >
+        Create or edit a Moloni Document Type
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="form-group" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-control-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="jhipsterSampleApplicationApp.moloniDocumentType.documentType"
+            for="field_documentType"
+            >Document Type</label
+          >
+          <select class="form-control" name="documentType" formControlName="documentType" id="field_documentType" data-cy="documentType">
+            <option [ngValue]="null">{{ 'jhipsterSampleApplicationApp.DocumentType.null' | translate }}</option>
+            <option *ngFor="let documentType of documentTypeValues" [value]="documentType">
+              {{ 'jhipsterSampleApplicationApp.DocumentType.' + documentType | translate }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.moloniDocumentType.config1" for="field_config1"
+            >Config 1</label
+          >
+          <select class="form-control" id="field_config1" data-cy="config1" name="config1" formControlName="config1">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="
+                moloniConfigurationOption.id === editForm.get('config1')!.value?.id
+                  ? editForm.get('config1')!.value
+                  : moloniConfigurationOption
+              "
+              *ngFor="let moloniConfigurationOption of moloniConfigurationsSharedCollection; trackBy: trackMoloniConfigurationById"
+            >
+              {{ moloniConfigurationOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.moloniDocumentType.config2" for="field_config2"
+            >Config 2</label
+          >
+          <select class="form-control" id="field_config2" data-cy="config2" name="config2" formControlName="config2">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="
+                moloniConfigurationOption.id === editForm.get('config2')!.value?.id
+                  ? editForm.get('config2')!.value
+                  : moloniConfigurationOption
+              "
+              *ngFor="let moloniConfigurationOption of moloniConfigurationsSharedCollection; trackBy: trackMoloniConfigurationById"
+            >
+              {{ moloniConfigurationOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.moloniDocumentType.config3" for="field_config3"
+            >Config 3</label
+          >
+          <select class="form-control" id="field_config3" data-cy="config3" name="config3" formControlName="config3">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="
+                moloniConfigurationOption.id === editForm.get('config3')!.value?.id
+                  ? editForm.get('config3')!.value
+                  : moloniConfigurationOption
+              "
+              *ngFor="let moloniConfigurationOption of moloniConfigurationsSharedCollection; trackBy: trackMoloniConfigurationById"
+            >
+              {{ moloniConfigurationOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.moloniDocumentType.config4" for="field_config4"
+            >Config 4</label
+          >
+          <select class="form-control" id="field_config4" data-cy="config4" name="config4" formControlName="config4">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="
+                moloniConfigurationOption.id === editForm.get('config4')!.value?.id
+                  ? editForm.get('config4')!.value
+                  : moloniConfigurationOption
+              "
+              *ngFor="let moloniConfigurationOption of moloniConfigurationsSharedCollection; trackBy: trackMoloniConfigurationById"
+            >
+              {{ moloniConfigurationOption.id }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
