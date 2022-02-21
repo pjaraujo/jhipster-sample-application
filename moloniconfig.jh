@@ -1,0 +1,29 @@
+
+entity MoloniConfiguration {
+	username String,
+    password String,
+    company String,
+    client String,
+    secret String
+}
+
+
+enum DocumentType {
+    INVOICES,RECEIPTS,CREDIT_NOTES,DEBIT_NOTES,SIMPLIFIED_INVOICES,DELIVERY_NOTES,BILLS_OF_LADING,OWN_ASSETS_MOVEMENT_GUIDES,WAYBILLS,CUSTOMER_RETURN_NOTE,ESTIMATES,INTERNAL_DOCUMENTS,INVOICE_RECEIPTS,PAYMENT_RETURNS,PURCHASE_ORDER,SUPPLIER_PURCHASE_ORDER,SUPPLIER_INVOICES,SUPPLIER_SIMPLIFIED_INVOICES,SUPPLIER_CREDIT_NOTES,SUPPLIER_DEBIT_NOTES,SUPPLIER_RETURN_NOTES,SUPPLIER_RECEIPTS,SUPPLIER_WARRANTY_REQUESTS,GLOBAL_GUIDES
+}
+
+entity MoloniDocumentType{
+	documentType DocumentType
+}
+ 
+relationship OneToMany {
+	MoloniConfiguration{receptionIn} to MoloniDocumentType{config1},
+	MoloniConfiguration{receptionOut} to MoloniDocumentType{config2},
+    MoloniConfiguration{expeditionIn} to MoloniDocumentType{config3},
+    MoloniConfiguration{expeditionOut} to MoloniDocumentType{config4},
+}
+
+
+paginate all with pagination
+dto * with mapstruct
+service all with serviceClass  
