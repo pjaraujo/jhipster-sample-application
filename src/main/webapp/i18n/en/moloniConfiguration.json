@@ -1,0 +1,32 @@
+{
+  "jhipsterSampleApplicationApp": {
+    "moloniConfiguration": {
+      "home": {
+        "title": "Moloni Configurations",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Moloni Configuration",
+        "createOrEditLabel": "Create or edit a Moloni Configuration",
+        "notFound": "No Moloni Configurations found"
+      },
+      "created": "A new Moloni Configuration is created with identifier {{ param }}",
+      "updated": "A Moloni Configuration is updated with identifier {{ param }}",
+      "deleted": "A Moloni Configuration is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Moloni Configuration {{ id }}?"
+      },
+      "detail": {
+        "title": "Moloni Configuration"
+      },
+      "id": "ID",
+      "username": "Username",
+      "password": "Password",
+      "company": "Company",
+      "client": "Client",
+      "secret": "Secret",
+      "receptionIn": "Reception In",
+      "receptionOut": "Reception Out",
+      "expeditionIn": "Expedition In",
+      "expeditionOut": "Expedition Out"
+    }
+  }
+}

@@ -1,0 +1,60 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="moloniDocumentType">
+      <h2 data-cy="moloniDocumentTypeDetailsHeading">
+        <span jhiTranslate="jhipsterSampleApplicationApp.moloniDocumentType.detail.title">Moloni Document Type</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ moloniDocumentType.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterSampleApplicationApp.moloniDocumentType.documentType">Document Type</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'jhipsterSampleApplicationApp.DocumentType.' + moloniDocumentType.documentType }}">{{
+            moloniDocumentType.documentType
+          }}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterSampleApplicationApp.moloniDocumentType.config1">Config 1</span></dt>
+        <dd>
+          <div *ngIf="moloniDocumentType.config1">
+            <a [routerLink]="['/moloni-configuration', moloniDocumentType.config1?.id, 'view']">{{ moloniDocumentType.config1?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="jhipsterSampleApplicationApp.moloniDocumentType.config2">Config 2</span></dt>
+        <dd>
+          <div *ngIf="moloniDocumentType.config2">
+            <a [routerLink]="['/moloni-configuration', moloniDocumentType.config2?.id, 'view']">{{ moloniDocumentType.config2?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="jhipsterSampleApplicationApp.moloniDocumentType.config3">Config 3</span></dt>
+        <dd>
+          <div *ngIf="moloniDocumentType.config3">
+            <a [routerLink]="['/moloni-configuration', moloniDocumentType.config3?.id, 'view']">{{ moloniDocumentType.config3?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="jhipsterSampleApplicationApp.moloniDocumentType.config4">Config 4</span></dt>
+        <dd>
+          <div *ngIf="moloniDocumentType.config4">
+            <a [routerLink]="['/moloni-configuration', moloniDocumentType.config4?.id, 'view']">{{ moloniDocumentType.config4?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/moloni-document-type', moloniDocumentType.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

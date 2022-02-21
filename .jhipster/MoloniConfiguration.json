@@ -1,0 +1,61 @@
+{
+  "applications": "*",
+  "changelogDate": "20220221162914",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "moloni_configuration",
+  "fields": [
+    {
+      "fieldName": "username",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "password",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "company",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "client",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "secret",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "MoloniConfiguration",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "moloniDocumentType",
+      "otherEntityRelationshipName": "config1",
+      "relationshipName": "receptionIn",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "moloniDocumentType",
+      "otherEntityRelationshipName": "config2",
+      "relationshipName": "receptionOut",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "moloniDocumentType",
+      "otherEntityRelationshipName": "config3",
+      "relationshipName": "expeditionIn",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "moloniDocumentType",
+      "otherEntityRelationshipName": "config4",
+      "relationshipName": "expeditionOut",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "serviceClass"
+}

@@ -1,0 +1,50 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="moloniConfiguration">
+      <h2 data-cy="moloniConfigurationDetailsHeading">
+        <span jhiTranslate="jhipsterSampleApplicationApp.moloniConfiguration.detail.title">Moloni Configuration</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ moloniConfiguration.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterSampleApplicationApp.moloniConfiguration.username">Username</span></dt>
+        <dd>
+          <span>{{ moloniConfiguration.username }}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterSampleApplicationApp.moloniConfiguration.password">Password</span></dt>
+        <dd>
+          <span>{{ moloniConfiguration.password }}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterSampleApplicationApp.moloniConfiguration.company">Company</span></dt>
+        <dd>
+          <span>{{ moloniConfiguration.company }}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterSampleApplicationApp.moloniConfiguration.client">Client</span></dt>
+        <dd>
+          <span>{{ moloniConfiguration.client }}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterSampleApplicationApp.moloniConfiguration.secret">Secret</span></dt>
+        <dd>
+          <span>{{ moloniConfiguration.secret }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/moloni-configuration', moloniConfiguration.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

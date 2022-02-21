@@ -1,0 +1,46 @@
+{
+  "applications": "*",
+  "changelogDate": "20220221162915",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "moloni_document_type",
+  "fields": [
+    {
+      "fieldName": "documentType",
+      "fieldType": "DocumentType",
+      "fieldValues": "INVOICES,RECEIPTS,CREDIT_NOTES,DEBIT_NOTES,SIMPLIFIED_INVOICES,DELIVERY_NOTES,BILLS_OF_LADING,OWN_ASSETS_MOVEMENT_GUIDES,WAYBILLS,CUSTOMER_RETURN_NOTE,ESTIMATES,INTERNAL_DOCUMENTS,INVOICE_RECEIPTS,PAYMENT_RETURNS,PURCHASE_ORDER,SUPPLIER_PURCHASE_ORDER,SUPPLIER_INVOICES,SUPPLIER_SIMPLIFIED_INVOICES,SUPPLIER_CREDIT_NOTES,SUPPLIER_DEBIT_NOTES,SUPPLIER_RETURN_NOTES,SUPPLIER_RECEIPTS,SUPPLIER_WARRANTY_REQUESTS,GLOBAL_GUIDES"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "MoloniDocumentType",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "moloniConfiguration",
+      "otherEntityRelationshipName": "receptionIn",
+      "relationshipName": "config1",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "moloniConfiguration",
+      "otherEntityRelationshipName": "receptionOut",
+      "relationshipName": "config2",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "moloniConfiguration",
+      "otherEntityRelationshipName": "expeditionIn",
+      "relationshipName": "config3",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "moloniConfiguration",
+      "otherEntityRelationshipName": "expeditionOut",
+      "relationshipName": "config4",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceClass"
+}
