@@ -1,0 +1,130 @@
+<div>
+  <h2 id="page-heading" data-cy="MoloniExpeditionDocumentHeading">
+    <span jhiTranslate="jhipsterSampleApplicationApp.moloniExpeditionDocument.home.title">Moloni Expedition Documents</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info mr-2" (click)="loadPage()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="jhipsterSampleApplicationApp.moloniExpeditionDocument.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-moloni-expedition-document"
+        [routerLink]="['/moloni-expedition-document/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="jhipsterSampleApplicationApp.moloniExpeditionDocument.home.createLabel">
+          Create a new Moloni Expedition Document
+        </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="moloniExpeditionDocuments?.length === 0">
+    <span jhiTranslate="jhipsterSampleApplicationApp.moloniExpeditionDocument.home.notFound">No moloniExpeditionDocuments found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="moloniExpeditionDocuments && moloniExpeditionDocuments.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="loadPage()">
+          <th scope="col" jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="origin">
+            <span jhiTranslate="jhipsterSampleApplicationApp.moloniExpeditionDocument.origin">Origin</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="destination">
+            <span jhiTranslate="jhipsterSampleApplicationApp.moloniExpeditionDocument.destination">Destination</span>
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="shippingProcess.id">
+            <span jhiTranslate="jhipsterSampleApplicationApp.moloniExpeditionDocument.shippingProcess">Shipping Process</span>
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="config.id">
+            <span jhiTranslate="jhipsterSampleApplicationApp.moloniExpeditionDocument.config">Config</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let moloniExpeditionDocument of moloniExpeditionDocuments; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/moloni-expedition-document', moloniExpeditionDocument.id, 'view']">{{ moloniExpeditionDocument.id }}</a>
+          </td>
+          <td jhiTranslate="{{ 'jhipsterSampleApplicationApp.MoloniEndpoints.' + moloniExpeditionDocument.origin }}">
+            {{ moloniExpeditionDocument.origin }}
+          </td>
+          <td jhiTranslate="{{ 'jhipsterSampleApplicationApp.MoloniEndpoints.' + moloniExpeditionDocument.destination }}">
+            {{ moloniExpeditionDocument.destination }}
+          </td>
+          <td>
+            <div *ngIf="moloniExpeditionDocument.shippingProcess">
+              <a [routerLink]="['/shipping-process', moloniExpeditionDocument.shippingProcess?.id, 'view']">{{
+                moloniExpeditionDocument.shippingProcess?.id
+              }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="moloniExpeditionDocument.config">
+              <a [routerLink]="['/moloni-configuration', moloniExpeditionDocument.config?.id, 'view']">{{
+                moloniExpeditionDocument.config?.id
+              }}</a>
+            </div>
+          </td>
+          <td class="text-right">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/moloni-expedition-document', moloniExpeditionDocument.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/moloni-expedition-document', moloniExpeditionDocument.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(moloniExpeditionDocument)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="moloniExpeditionDocuments && moloniExpeditionDocuments.length > 0">
+    <div class="row justify-content-center">
+      <jhi-item-count [params]="{ page: page, totalItems: totalItems, itemsPerPage: itemsPerPage }"></jhi-item-count>
+    </div>
+
+    <div class="row justify-content-center">
+      <ngb-pagination
+        [collectionSize]="totalItems"
+        [(page)]="ngbPaginationPage"
+        [pageSize]="itemsPerPage"
+        [maxSize]="5"
+        [rotate]="true"
+        [boundaryLinks]="true"
+        (pageChange)="loadPage($event)"
+      ></ngb-pagination>
+    </div>
+  </div>
+</div>

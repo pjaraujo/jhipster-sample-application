@@ -1,0 +1,58 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="moloniExpeditionDocument">
+      <h2 data-cy="moloniExpeditionDocumentDetailsHeading">
+        <span jhiTranslate="jhipsterSampleApplicationApp.moloniExpeditionDocument.detail.title">Moloni Expedition Document</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ moloniExpeditionDocument.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterSampleApplicationApp.moloniExpeditionDocument.origin">Origin</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'jhipsterSampleApplicationApp.MoloniEndpoints.' + moloniExpeditionDocument.origin }}">{{
+            moloniExpeditionDocument.origin
+          }}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterSampleApplicationApp.moloniExpeditionDocument.destination">Destination</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'jhipsterSampleApplicationApp.MoloniEndpoints.' + moloniExpeditionDocument.destination }}">{{
+            moloniExpeditionDocument.destination
+          }}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterSampleApplicationApp.moloniExpeditionDocument.shippingProcess">Shipping Process</span></dt>
+        <dd>
+          <div *ngIf="moloniExpeditionDocument.shippingProcess">
+            <a [routerLink]="['/shipping-process', moloniExpeditionDocument.shippingProcess?.id, 'view']">{{
+              moloniExpeditionDocument.shippingProcess?.id
+            }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="jhipsterSampleApplicationApp.moloniExpeditionDocument.config">Config</span></dt>
+        <dd>
+          <div *ngIf="moloniExpeditionDocument.config">
+            <a [routerLink]="['/moloni-configuration', moloniExpeditionDocument.config?.id, 'view']">{{
+              moloniExpeditionDocument.config?.id
+            }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/moloni-expedition-document', moloniExpeditionDocument.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

@@ -33,27 +33,15 @@
   "readOnly": false,
   "relationships": [
     {
-      "otherEntityName": "moloniDocumentType",
-      "otherEntityRelationshipName": "config1",
-      "relationshipName": "receptionIn",
+      "otherEntityName": "moloniReceptionDocument",
+      "otherEntityRelationshipName": "config",
+      "relationshipName": "receptions",
       "relationshipType": "one-to-many"
     },
     {
-      "otherEntityName": "moloniDocumentType",
-      "otherEntityRelationshipName": "config2",
-      "relationshipName": "receptionOut",
-      "relationshipType": "one-to-many"
-    },
-    {
-      "otherEntityName": "moloniDocumentType",
-      "otherEntityRelationshipName": "config3",
-      "relationshipName": "expeditionIn",
-      "relationshipType": "one-to-many"
-    },
-    {
-      "otherEntityName": "moloniDocumentType",
-      "otherEntityRelationshipName": "config4",
-      "relationshipName": "expeditionOut",
+      "otherEntityName": "moloniExpeditionDocument",
+      "otherEntityRelationshipName": "config",
+      "relationshipName": "expeditions",
       "relationshipType": "one-to-many"
     }
   ],

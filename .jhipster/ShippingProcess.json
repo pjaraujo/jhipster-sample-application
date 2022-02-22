@@ -1,0 +1,15 @@
+{
+  "applications": "*",
+  "changelogDate": "20220222170042",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "shipping_process",
+  "fields": [],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "ShippingProcess",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [],
+  "service": "serviceClass"
+}

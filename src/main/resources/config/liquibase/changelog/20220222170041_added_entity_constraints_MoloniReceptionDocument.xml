@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd">
+    <!--
+        Added the constraints for entity MoloniReceptionDocument.
+    -->
+    <changeSet id="20220222170041-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="config_id"
+                                 baseTableName="moloni_reception_document"
+                                 constraintName="fk_moloni_reception_document__config_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="moloni_configuration"/>
+    </changeSet>
+</databaseChangeLog>

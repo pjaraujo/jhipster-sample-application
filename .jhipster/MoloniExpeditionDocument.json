@@ -1,0 +1,39 @@
+{
+  "applications": "*",
+  "changelogDate": "20220222170040",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "moloni_expedition_document",
+  "fields": [
+    {
+      "fieldName": "origin",
+      "fieldType": "MoloniEndpoints",
+      "fieldValues": "INVOICES,RECEIPTS,CREDIT_NOTES,DEBIT_NOTES,SIMPLIFIED_INVOICES,DELIVERY_NOTES,BILLS_OF_LADING,OWN_ASSETS_MOVEMENT_GUIDES,WAYBILLS,CUSTOMER_RETURN_NOTE,ESTIMATES,INTERNAL_DOCUMENTS,INVOICE_RECEIPTS,PAYMENT_RETURNS,PURCHASE_ORDER,SUPPLIER_PURCHASE_ORDER,SUPPLIER_INVOICES,SUPPLIER_SIMPLIFIED_INVOICES,SUPPLIER_CREDIT_NOTES,SUPPLIER_DEBIT_NOTES,SUPPLIER_RETURN_NOTES,SUPPLIER_RECEIPTS,SUPPLIER_WARRANTY_REQUESTS,GLOBAL_GUIDES"
+    },
+    {
+      "fieldName": "destination",
+      "fieldType": "MoloniEndpoints",
+      "fieldValues": "INVOICES,RECEIPTS,CREDIT_NOTES,DEBIT_NOTES,SIMPLIFIED_INVOICES,DELIVERY_NOTES,BILLS_OF_LADING,OWN_ASSETS_MOVEMENT_GUIDES,WAYBILLS,CUSTOMER_RETURN_NOTE,ESTIMATES,INTERNAL_DOCUMENTS,INVOICE_RECEIPTS,PAYMENT_RETURNS,PURCHASE_ORDER,SUPPLIER_PURCHASE_ORDER,SUPPLIER_INVOICES,SUPPLIER_SIMPLIFIED_INVOICES,SUPPLIER_CREDIT_NOTES,SUPPLIER_DEBIT_NOTES,SUPPLIER_RETURN_NOTES,SUPPLIER_RECEIPTS,SUPPLIER_WARRANTY_REQUESTS,GLOBAL_GUIDES"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "MoloniExpeditionDocument",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "shippingProcess",
+      "otherEntityRelationshipName": "moloniExpeditionDocument",
+      "relationshipName": "shippingProcess",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "moloniConfiguration",
+      "otherEntityRelationshipName": "expeditions",
+      "relationshipName": "config",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceClass"
+}

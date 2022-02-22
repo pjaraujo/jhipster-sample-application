@@ -27,19 +27,19 @@ public class MoloniDocumentType implements Serializable {
     private DocumentType documentType;
 
     @ManyToOne
-    @JsonIgnoreProperties(value = { "receptionIns", "receptionOuts", "expeditionIns", "expeditionOuts" }, allowSetters = true)
+    @JsonIgnoreProperties(value = { "receptions", "expeditions" }, allowSetters = true)
     private MoloniConfiguration config1;
 
     @ManyToOne
-    @JsonIgnoreProperties(value = { "receptionIns", "receptionOuts", "expeditionIns", "expeditionOuts" }, allowSetters = true)
+    @JsonIgnoreProperties(value = { "receptions", "expeditions" }, allowSetters = true)
     private MoloniConfiguration config2;
 
     @ManyToOne
-    @JsonIgnoreProperties(value = { "receptionIns", "receptionOuts", "expeditionIns", "expeditionOuts" }, allowSetters = true)
+    @JsonIgnoreProperties(value = { "receptions", "expeditions" }, allowSetters = true)
     private MoloniConfiguration config3;
 
     @ManyToOne
-    @JsonIgnoreProperties(value = { "receptionIns", "receptionOuts", "expeditionIns", "expeditionOuts" }, allowSetters = true)
+    @JsonIgnoreProperties(value = { "receptions", "expeditions" }, allowSetters = true)
     private MoloniConfiguration config4;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here

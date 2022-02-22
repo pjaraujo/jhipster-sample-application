@@ -1,0 +1,23 @@
+{
+  "jhipsterSampleApplicationApp": {
+    "shippingProcess": {
+      "home": {
+        "title": "Shipping Processes",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Shipping Process",
+        "createOrEditLabel": "Create or edit a Shipping Process",
+        "notFound": "No Shipping Processes found"
+      },
+      "created": "A new Shipping Process is created with identifier {{ param }}",
+      "updated": "A Shipping Process is updated with identifier {{ param }}",
+      "deleted": "A Shipping Process is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Shipping Process {{ id }}?"
+      },
+      "detail": {
+        "title": "Shipping Process"
+      },
+      "id": "ID"
+    }
+  }
+}
