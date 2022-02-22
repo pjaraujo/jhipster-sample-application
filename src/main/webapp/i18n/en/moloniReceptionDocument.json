@@ -1,0 +1,27 @@
+{
+  "jhipsterSampleApplicationApp": {
+    "moloniReceptionDocument": {
+      "home": {
+        "title": "Moloni Reception Documents",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Moloni Reception Document",
+        "createOrEditLabel": "Create or edit a Moloni Reception Document",
+        "notFound": "No Moloni Reception Documents found"
+      },
+      "created": "A new Moloni Reception Document is created with identifier {{ param }}",
+      "updated": "A Moloni Reception Document is updated with identifier {{ param }}",
+      "deleted": "A Moloni Reception Document is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Moloni Reception Document {{ id }}?"
+      },
+      "detail": {
+        "title": "Moloni Reception Document"
+      },
+      "id": "ID",
+      "origin": "Origin",
+      "destination": "Destination",
+      "documentType": "Document Type",
+      "config": "Config"
+    }
+  }
+}

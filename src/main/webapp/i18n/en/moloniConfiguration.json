@@ -23,10 +23,8 @@
       "company": "Company",
       "client": "Client",
       "secret": "Secret",
-      "receptionIn": "Reception In",
-      "receptionOut": "Reception Out",
-      "expeditionIn": "Expedition In",
-      "expeditionOut": "Expedition Out"
+      "receptions": "Receptions",
+      "expeditions": "Expeditions"
     }
   }
 }

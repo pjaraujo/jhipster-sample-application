@@ -1,0 +1,126 @@
+<div>
+  <h2 id="page-heading" data-cy="MoloniReceptionDocumentHeading">
+    <span jhiTranslate="jhipsterSampleApplicationApp.moloniReceptionDocument.home.title">Moloni Reception Documents</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info mr-2" (click)="loadPage()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="jhipsterSampleApplicationApp.moloniReceptionDocument.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-moloni-reception-document"
+        [routerLink]="['/moloni-reception-document/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="jhipsterSampleApplicationApp.moloniReceptionDocument.home.createLabel">
+          Create a new Moloni Reception Document
+        </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="moloniReceptionDocuments?.length === 0">
+    <span jhiTranslate="jhipsterSampleApplicationApp.moloniReceptionDocument.home.notFound">No moloniReceptionDocuments found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="moloniReceptionDocuments && moloniReceptionDocuments.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="loadPage()">
+          <th scope="col" jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="origin">
+            <span jhiTranslate="jhipsterSampleApplicationApp.moloniReceptionDocument.origin">Origin</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="destination">
+            <span jhiTranslate="jhipsterSampleApplicationApp.moloniReceptionDocument.destination">Destination</span>
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="documentType">
+            <span jhiTranslate="jhipsterSampleApplicationApp.moloniReceptionDocument.documentType">Document Type</span>
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="config.id">
+            <span jhiTranslate="jhipsterSampleApplicationApp.moloniReceptionDocument.config">Config</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let moloniReceptionDocument of moloniReceptionDocuments; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/moloni-reception-document', moloniReceptionDocument.id, 'view']">{{ moloniReceptionDocument.id }}</a>
+          </td>
+          <td jhiTranslate="{{ 'jhipsterSampleApplicationApp.MoloniEndpoints.' + moloniReceptionDocument.origin }}">
+            {{ moloniReceptionDocument.origin }}
+          </td>
+          <td jhiTranslate="{{ 'jhipsterSampleApplicationApp.MoloniEndpoints.' + moloniReceptionDocument.destination }}">
+            {{ moloniReceptionDocument.destination }}
+          </td>
+          <td jhiTranslate="{{ 'jhipsterSampleApplicationApp.DocumentType.' + moloniReceptionDocument.documentType }}">
+            {{ moloniReceptionDocument.documentType }}
+          </td>
+          <td>
+            <div *ngIf="moloniReceptionDocument.config">
+              <a [routerLink]="['/moloni-configuration', moloniReceptionDocument.config?.id, 'view']">{{
+                moloniReceptionDocument.config?.id
+              }}</a>
+            </div>
+          </td>
+          <td class="text-right">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/moloni-reception-document', moloniReceptionDocument.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/moloni-reception-document', moloniReceptionDocument.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(moloniReceptionDocument)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="moloniReceptionDocuments && moloniReceptionDocuments.length > 0">
+    <div class="row justify-content-center">
+      <jhi-item-count [params]="{ page: page, totalItems: totalItems, itemsPerPage: itemsPerPage }"></jhi-item-count>
+    </div>
+
+    <div class="row justify-content-center">
+      <ngb-pagination
+        [collectionSize]="totalItems"
+        [(page)]="ngbPaginationPage"
+        [pageSize]="itemsPerPage"
+        [maxSize]="5"
+        [rotate]="true"
+        [boundaryLinks]="true"
+        (pageChange)="loadPage($event)"
+      ></ngb-pagination>
+    </div>
+  </div>
+</div>

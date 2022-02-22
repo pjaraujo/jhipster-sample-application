@@ -1,0 +1,27 @@
+{
+  "jhipsterSampleApplicationApp": {
+    "moloniExpeditionDocument": {
+      "home": {
+        "title": "Moloni Expedition Documents",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Moloni Expedition Document",
+        "createOrEditLabel": "Create or edit a Moloni Expedition Document",
+        "notFound": "No Moloni Expedition Documents found"
+      },
+      "created": "A new Moloni Expedition Document is created with identifier {{ param }}",
+      "updated": "A Moloni Expedition Document is updated with identifier {{ param }}",
+      "deleted": "A Moloni Expedition Document is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Moloni Expedition Document {{ id }}?"
+      },
+      "detail": {
+        "title": "Moloni Expedition Document"
+      },
+      "id": "ID",
+      "origin": "Origin",
+      "destination": "Destination",
+      "shippingProcess": "Shipping Process",
+      "config": "Config"
+    }
+  }
+}

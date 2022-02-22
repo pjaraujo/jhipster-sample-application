@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd">
+    <!--
+        Added the constraints for entity MoloniExpeditionDocument.
+    -->
+    <changeSet id="20220222170040-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="shipping_process_id"
+                                 baseTableName="moloni_expedition_document"
+                                 constraintName="fk_moloni_expedition_document__shipping_process_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="shipping_process"/>
+
+        <addForeignKeyConstraint baseColumnNames="config_id"
+                                 baseTableName="moloni_expedition_document"
+                                 constraintName="fk_moloni_expedition_document__config_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="moloni_configuration"/>
+    </changeSet>
+</databaseChangeLog>

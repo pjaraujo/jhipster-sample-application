@@ -38,25 +38,15 @@ public class MoloniConfiguration implements Serializable {
     @Column(name = "secret")
     private String secret;
 
-    @OneToMany(mappedBy = "config1")
+    @OneToMany(mappedBy = "config")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    @JsonIgnoreProperties(value = { "config1", "config2", "config3", "config4" }, allowSetters = true)
-    private Set<MoloniDocumentType> receptionIns = new HashSet<>();
+    @JsonIgnoreProperties(value = { "config" }, allowSetters = true)
+    private Set<MoloniReceptionDocument> receptions = new HashSet<>();
 
-    @OneToMany(mappedBy = "config2")
+    @OneToMany(mappedBy = "config")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    @JsonIgnoreProperties(value = { "config1", "config2", "config3", "config4" }, allowSetters = true)
-    private Set<MoloniDocumentType> receptionOuts = new HashSet<>();
-
-    @OneToMany(mappedBy = "config3")
-    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    @JsonIgnoreProperties(value = { "config1", "config2", "config3", "config4" }, allowSetters = true)
-    private Set<MoloniDocumentType> expeditionIns = new HashSet<>();
-
-    @OneToMany(mappedBy = "config4")
-    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    @JsonIgnoreProperties(value = { "config1", "config2", "config3", "config4" }, allowSetters = true)
-    private Set<MoloniDocumentType> expeditionOuts = new HashSet<>();
+    @JsonIgnoreProperties(value = { "shippingProcess", "config" }, allowSetters = true)
+    private Set<MoloniExpeditionDocument> expeditions = new HashSet<>();
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
 
@@ -138,127 +128,65 @@ public class MoloniConfiguration implements Serializable {
         this.secret = secret;
     }
 
-    public Set<MoloniDocumentType> getReceptionIns() {
-        return this.receptionIns;
+    public Set<MoloniReceptionDocument> getReceptions() {
+        return this.receptions;
     }
 
-    public void setReceptionIns(Set<MoloniDocumentType> moloniDocumentTypes) {
-        if (this.receptionIns != null) {
-            this.receptionIns.forEach(i -> i.setConfig1(null));
+    public void setReceptions(Set<MoloniReceptionDocument> moloniReceptionDocuments) {
+        if (this.receptions != null) {
+            this.receptions.forEach(i -> i.setConfig(null));
         }
-        if (moloniDocumentTypes != null) {
-            moloniDocumentTypes.forEach(i -> i.setConfig1(this));
+        if (moloniReceptionDocuments != null) {
+            moloniReceptionDocuments.forEach(i -> i.setConfig(this));
         }
-        this.receptionIns = moloniDocumentTypes;
+        this.receptions = moloniReceptionDocuments;
     }
 
-    public MoloniConfiguration receptionIns(Set<MoloniDocumentType> moloniDocumentTypes) {
-        this.setReceptionIns(moloniDocumentTypes);
+    public MoloniConfiguration receptions(Set<MoloniReceptionDocument> moloniReceptionDocuments) {
+        this.setReceptions(moloniReceptionDocuments);
         return this;
     }
 
-    public MoloniConfiguration addReceptionIn(MoloniDocumentType moloniDocumentType) {
-        this.receptionIns.add(moloniDocumentType);
-        moloniDocumentType.setConfig1(this);
+    public MoloniConfiguration addReceptions(MoloniReceptionDocument moloniReceptionDocument) {
+        this.receptions.add(moloniReceptionDocument);
+        moloniReceptionDocument.setConfig(this);
         return this;
     }
 
-    public MoloniConfiguration removeReceptionIn(MoloniDocumentType moloniDocumentType) {
-        this.receptionIns.remove(moloniDocumentType);
-        moloniDocumentType.setConfig1(null);
+    public MoloniConfiguration removeReceptions(MoloniReceptionDocument moloniReceptionDocument) {
+        this.receptions.remove(moloniReceptionDocument);
+        moloniReceptionDocument.setConfig(null);
         return this;
     }
 
-    public Set<MoloniDocumentType> getReceptionOuts() {
-        return this.receptionOuts;
+    public Set<MoloniExpeditionDocument> getExpeditions() {
+        return this.expeditions;
     }
 
-    public void setReceptionOuts(Set<MoloniDocumentType> moloniDocumentTypes) {
-        if (this.receptionOuts != null) {
-            this.receptionOuts.forEach(i -> i.setConfig2(null));
+    public void setExpeditions(Set<MoloniExpeditionDocument> moloniExpeditionDocuments) {
+        if (this.expeditions != null) {
+            this.expeditions.forEach(i -> i.setConfig(null));
         }
-        if (moloniDocumentTypes != null) {
-            moloniDocumentTypes.forEach(i -> i.setConfig2(this));
+        if (moloniExpeditionDocuments != null) {
+            moloniExpeditionDocuments.forEach(i -> i.setConfig(this));
         }
-        this.receptionOuts = moloniDocumentTypes;
+        this.expeditions = moloniExpeditionDocuments;
     }
 
-    public MoloniConfiguration receptionOuts(Set<MoloniDocumentType> moloniDocumentTypes) {
-        this.setReceptionOuts(moloniDocumentTypes);
+    public MoloniConfiguration expeditions(Set<MoloniExpeditionDocument> moloniExpeditionDocuments) {
+        this.setExpeditions(moloniExpeditionDocuments);
         return this;
     }
 
-    public MoloniConfiguration addReceptionOut(MoloniDocumentType moloniDocumentType) {
-        this.receptionOuts.add(moloniDocumentType);
-        moloniDocumentType.setConfig2(this);
+    public MoloniConfiguration addExpeditions(MoloniExpeditionDocument moloniExpeditionDocument) {
+        this.expeditions.add(moloniExpeditionDocument);
+        moloniExpeditionDocument.setConfig(this);
         return this;
     }
 
-    public MoloniConfiguration removeReceptionOut(MoloniDocumentType moloniDocumentType) {
-        this.receptionOuts.remove(moloniDocumentType);
-        moloniDocumentType.setConfig2(null);
-        return this;
-    }
-
-    public Set<MoloniDocumentType> getExpeditionIns() {
-        return this.expeditionIns;
-    }
-
-    public void setExpeditionIns(Set<MoloniDocumentType> moloniDocumentTypes) {
-        if (this.expeditionIns != null) {
-            this.expeditionIns.forEach(i -> i.setConfig3(null));
-        }
-        if (moloniDocumentTypes != null) {
-            moloniDocumentTypes.forEach(i -> i.setConfig3(this));
-        }
-        this.expeditionIns = moloniDocumentTypes;
-    }
-
-    public MoloniConfiguration expeditionIns(Set<MoloniDocumentType> moloniDocumentTypes) {
-        this.setExpeditionIns(moloniDocumentTypes);
-        return this;
-    }
-
-    public MoloniConfiguration addExpeditionIn(MoloniDocumentType moloniDocumentType) {
-        this.expeditionIns.add(moloniDocumentType);
-        moloniDocumentType.setConfig3(this);
-        return this;
-    }
-
-    public MoloniConfiguration removeExpeditionIn(MoloniDocumentType moloniDocumentType) {
-        this.expeditionIns.remove(moloniDocumentType);
-        moloniDocumentType.setConfig3(null);
-        return this;
-    }
-
-    public Set<MoloniDocumentType> getExpeditionOuts() {
-        return this.expeditionOuts;
-    }
-
-    public void setExpeditionOuts(Set<MoloniDocumentType> moloniDocumentTypes) {
-        if (this.expeditionOuts != null) {
-            this.expeditionOuts.forEach(i -> i.setConfig4(null));
-        }
-        if (moloniDocumentTypes != null) {
-            moloniDocumentTypes.forEach(i -> i.setConfig4(this));
-        }
-        this.expeditionOuts = moloniDocumentTypes;
-    }
-
-    public MoloniConfiguration expeditionOuts(Set<MoloniDocumentType> moloniDocumentTypes) {
-        this.setExpeditionOuts(moloniDocumentTypes);
-        return this;
-    }
-
-    public MoloniConfiguration addExpeditionOut(MoloniDocumentType moloniDocumentType) {
-        this.expeditionOuts.add(moloniDocumentType);
-        moloniDocumentType.setConfig4(this);
-        return this;
-    }
-
-    public MoloniConfiguration removeExpeditionOut(MoloniDocumentType moloniDocumentType) {
-        this.expeditionOuts.remove(moloniDocumentType);
-        moloniDocumentType.setConfig4(null);
+    public MoloniConfiguration removeExpeditions(MoloniExpeditionDocument moloniExpeditionDocument) {
+        this.expeditions.remove(moloniExpeditionDocument);
+        moloniExpeditionDocument.setConfig(null);
         return this;
     }
 

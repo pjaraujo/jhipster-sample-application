@@ -9,6 +9,9 @@
         "main": "Entities",
         "moloniConfiguration": "Moloni Configuration",
         "moloniDocumentType": "Moloni Document Type",
+        "moloniExpeditionDocument": "Moloni Expedition Document",
+        "moloniReceptionDocument": "Moloni Reception Document",
+        "shippingProcess": "Shipping Process",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {

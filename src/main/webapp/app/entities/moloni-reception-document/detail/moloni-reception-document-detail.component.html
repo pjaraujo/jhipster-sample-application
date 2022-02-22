@@ -1,0 +1,56 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="moloniReceptionDocument">
+      <h2 data-cy="moloniReceptionDocumentDetailsHeading">
+        <span jhiTranslate="jhipsterSampleApplicationApp.moloniReceptionDocument.detail.title">Moloni Reception Document</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ moloniReceptionDocument.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterSampleApplicationApp.moloniReceptionDocument.origin">Origin</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'jhipsterSampleApplicationApp.MoloniEndpoints.' + moloniReceptionDocument.origin }}">{{
+            moloniReceptionDocument.origin
+          }}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterSampleApplicationApp.moloniReceptionDocument.destination">Destination</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'jhipsterSampleApplicationApp.MoloniEndpoints.' + moloniReceptionDocument.destination }}">{{
+            moloniReceptionDocument.destination
+          }}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterSampleApplicationApp.moloniReceptionDocument.documentType">Document Type</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'jhipsterSampleApplicationApp.DocumentType.' + moloniReceptionDocument.documentType }}">{{
+            moloniReceptionDocument.documentType
+          }}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterSampleApplicationApp.moloniReceptionDocument.config">Config</span></dt>
+        <dd>
+          <div *ngIf="moloniReceptionDocument.config">
+            <a [routerLink]="['/moloni-configuration', moloniReceptionDocument.config?.id, 'view']">{{
+              moloniReceptionDocument.config?.id
+            }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/moloni-reception-document', moloniReceptionDocument.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>
